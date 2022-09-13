@@ -1,0 +1,25 @@
+<?php
+
+namespace App\Database\Seeds;
+
+use CodeIgniter\Database\Seeder;
+
+class BCursosDocenteSeeder extends Seeder
+{
+    public function run()
+    {
+        $this->db->table('cursos_docentes')->where('id_curso_docente >=', 1)->delete();
+        $dep = ['PRESENCIAL', 'VIRTUAL', 'SEMI-PRESENCIAL'];
+        for ($i = 1; $i <= 10; $i++) {
+            $data = [
+                'id_curso_docente' => null,
+                'id_curso' => $i,
+                'id_persona' => $i,
+                'celular' => $i > 9 ? '00000000' : $i . $i . $i . $i . $i . $i . $i . $i,
+                'email' => 'CursoDocente' . $i . '@gmail.com',
+            ];
+            $this->db->table('cursos_docentes')->insert($data);
+        }
+        // Using Query Builder
+    }
+}
