@@ -13,7 +13,7 @@ class UFormSoftwareSeeder extends Seeder
             $data = [
                 'id_formulario_software' => null,
                 'id_persona_solicitante' => $i,
-                'id_persona_tecnico' => $i,
+                'id_persona_desarrollador' => $i,
                 'tipo_trabajo ' => 'trabajo' . $i,
             ];
             $this->db->table('formularios_software')->insert($data);
